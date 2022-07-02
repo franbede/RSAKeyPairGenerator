@@ -16,19 +16,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Example of a call to a native method
-        binding.sampleText.text = generateRSAKeyPair()?.get(0)?: ""
-    }
-
-    /**
-     * A native method that is implemented by the 'rsakeypairgenerator' native library,
-     * which is packaged with this application.
-     */
-    private external fun generateRSAKeyPair(): Array<String>?
-
-    companion object {
-        // Used to load the 'rsakeypairgenerator' library on application startup.
-        init {
-            System.loadLibrary("rsakeypairgenerator")
-        }
+        binding.sampleText.text = EncryptionUtils.generateRSAKeyPair()?.get(0)?: ""
     }
 }
